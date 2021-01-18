@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/contactbook/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/contactbook/static/js/main.331f072d.chunk.js",
-    "main.js.map": "/contactbook/static/js/main.331f072d.chunk.js.map",
+    "main.js": "/contactbook/static/js/main.94d51132.chunk.js",
+    "main.js.map": "/contactbook/static/js/main.94d51132.chunk.js.map",
     "runtime-main.js": "/contactbook/static/js/runtime-main.3145ceea.js",
     "runtime-main.js.map": "/contactbook/static/js/runtime-main.3145ceea.js.map",
     "static/js/2.edf02dfc.chunk.js": "/contactbook/static/js/2.edf02dfc.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.3145ceea.js",
     "static/js/2.edf02dfc.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.331f072d.chunk.js"
+    "static/js/main.94d51132.chunk.js"
   ]
 }
