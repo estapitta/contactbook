@@ -26,7 +26,7 @@ const normalizeData = (obj) => {
     contact.fullName = contact.firstName + " " + contact.lastName 
     contact.dealCount = contact.deals.length
     let currency = ""
-    contact.valueTotal = contact.deals.reduce((total, dealId) => {
+    let totalValue = contact.deals.reduce((total, dealId) => {
       let foundDeal = obj.deals.find((deal) => deal.id === dealId)
       if(foundDeal){
         //Assuming every deal under one contact is of the same currency
@@ -36,7 +36,19 @@ const normalizeData = (obj) => {
         return total
       }
     }, 0)
-    contact.valueCurrency = currency
+
+    if(currency && totalValue) {
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: currency.toUpperCase(),
+        maximumFractionDigits: 0, 
+        minimumFractionDigits: 0
+      });
+      
+      contact.valueTotal = formatter.format(totalValue);
+    } else {
+      contact.valueTotal = "-";
+    }
 
     contact.geoIps.forEach((geoIpId) => {
       const foundGeoIp = obj.geoIps.find((ip) => ip.id === geoIpId)
@@ -69,31 +81,3 @@ const normalizeData = (obj) => {
 
   return contacts
 }
-// const fetchAllTags = async () => {
-//   try{
-//     const response = await fetch(corsanywhere + baseUrl + tagsEndPoint, {
-//       headers:{
-//         "Api-Token": apiKey
-//       }
-//     })
-//     const data = await response.json()
-//     console.log(data)
-//   } catch(error){
-//     console.log(error)
-//   }
-
-//}
-
-// const fetchContactTags = async(url) => {
-//   try {
-//   const response = await fetch(corsanywhere + url, {
-//     headers:{
-//       "Api-Token": apiKey
-//     }
-//   })
-//   const data = await response.json()
-//   console.log(data)
-//   } catch(error) {
-//     console.log(error)
-//   }
-//}
